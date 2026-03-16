@@ -519,6 +519,25 @@
   .resume-dl-text { font-size: 13px; color: var(--muted); }
   .resume-dl-text strong { color: var(--text); display: block; margin-bottom: 0.25rem; font-family: var(--sans); font-size: 1rem; }
 
+  .resume-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 3rem 2rem;
+    border: 1px solid var(--border);
+    background: var(--green-ghost);
+    color: var(--green);
+    font-family: var(--sans);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: all 0.25s;
+  }
+
+  .resume-box:hover { border-color: var(--green); background: rgba(0,255,136,0.12); transform: translateY(-2px); }
+
   /* ===== CONTACT ===== */
   #contact {
     padding: 6rem 4rem;
@@ -704,6 +723,7 @@
       align-items: center;
     }
     .resume-dl .btn-primary { width: 100%; justify-content: center; min-height: 48px; }
+    .resume-box { padding: 2rem 1.5rem; font-size: 1.1rem; }
 
     .contact-grid { gap: 2rem; }
     .contact-info h3 { font-size: 1.75rem; margin-bottom: 1rem; }
@@ -785,7 +805,7 @@
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- SKILLS (Section 01) -->
 <section id="skills">
   <div class="section-header fade-in">
     <span class="section-num">// 01</span>
@@ -826,11 +846,11 @@
       </div>
     </div>
     <div class="skill-card fade-in">
-      <p class="skill-cat">Vision</p>
-      <p class="skill-name">Computer Vision</p>
-      <p style="font-size:12px;color:var(--muted);">Object detection, segmentation, generative models, and real-time inference pipelines.</p>
+      <p class="skill-cat">Pipeline</p>
+      <p class="skill-name">Data Engineering</p>
+      <p style="font-size:12px;color:var(--muted);">ETL pipelines, streaming, warehousing, and data orchestration for ML and analytics at scale.</p>
       <div class="skill-tags">
-        <span class="tag">YOLO</span><span class="tag">SAM</span><span class="tag">OpenCV</span><span class="tag">CLIP</span>
+        <span class="tag">Apache Kafka</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">Spark</span>
       </div>
     </div>
     <div class="skill-card fade-in">
@@ -844,11 +864,21 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- RESUME (Section 02) -->
+<section id="resume">
   <div class="section-header fade-in">
     <span class="section-num">// 02</span>
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Resume</h2>
+    <div class="section-line"></div>
+  </div>
+  <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="resume-box fade-in">View my resume</a>
+</section>
+
+<!-- PROJECTS (Section 03) -->
+<section id="projects">
+  <div class="section-header fade-in">
+    <span class="section-num">// 03</span>
+    <h2 class="section-title">Publicly available projects</h2>
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
@@ -859,15 +889,13 @@
         <span class="project-status">LIVE</span>
       </div>
       <div class="project-body">
-        <h3 class="project-title">MedVision AI</h3>
-        <p class="project-desc">Deep learning pipeline for automated radiology report generation from X-ray and CT scan images. Achieved 94% diagnostic accuracy on benchmark datasets, reducing radiologist review time by 40%.</p>
+        <h3 class="project-title">Pseudogen</h3>
+        <p class="project-desc">Convert problem statements into structured pseudocode in multiple styles.</p>
         <div class="project-stack">
-          <span class="tag">PyTorch</span><span class="tag">Vision Transformer</span><span class="tag">DICOM</span><span class="tag">FastAPI</span>
+          <span class="tag">JavaScript</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
           <a href="#" class="project-link">Demo ↗</a>
-          <a href="#" class="project-link">Paper ↗</a>
         </div>
       </div>
     </div>
@@ -875,16 +903,15 @@
     <div class="project-card fade-in">
       <div class="project-header">
         <span class="project-num">PRJ_002</span>
-        <span class="project-status">DEPLOYED</span>
+        <span class="project-status">LIVE</span>
       </div>
       <div class="project-body">
-        <h3 class="project-title">NaijaGPT</h3>
-        <p class="project-desc">Fine-tuned large language model on Nigerian Pidgin, Yoruba, Igbo, and Hausa — bridging the language gap for 200M+ speakers underserved by existing AI tools. Multilingual RAG system.</p>
+        <h3 class="project-title">Real-time Anomaly Detector</h3>
+        <p class="project-desc">Detects anomalies in a live time-series stream using a model that adapts in real time — no periodic retraining, no batch jobs. The model handles concept drift (the normal distribution shifting over time) without being retrained manually.</p>
         <div class="project-stack">
-          <span class="tag">LLaMA 3</span><span class="tag">LoRA</span><span class="tag">HuggingFace</span><span class="tag">LangChain</span>
+          <span class="tag">Python</span><span class="tag">Streaming</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
           <a href="#" class="project-link">Demo ↗</a>
         </div>
       </div>
@@ -893,138 +920,20 @@
     <div class="project-card fade-in">
       <div class="project-header">
         <span class="project-num">PRJ_003</span>
-        <span class="project-status">RESEARCH</span>
+        <span class="project-status">IN DEVELOPMENT</span>
       </div>
       <div class="project-body">
-        <h3 class="project-title">AutoML Pipeline</h3>
-        <p class="project-desc">Neural architecture search system that automates model selection, hyperparameter tuning, and feature engineering for tabular datasets. 3x faster than manual experimentation cycles.</p>
+        <h3 class="project-title">Counterfactual Explanation Engine for Black-Box Models</h3>
+        <p class="project-desc">Explainable AI system for generating counterfactual explanations for black-box model predictions.</p>
         <div class="project-stack">
-          <span class="tag">Optuna</span><span class="tag">Ray Tune</span><span class="tag">ENAS</span><span class="tag">Pandas</span>
+          <span class="tag">Explainability</span><span class="tag">ML</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-          <a href="#" class="project-link">Paper ↗</a>
+          <span class="project-status" style="border:none;background:transparent;padding:0;font-size:11px;">Beta</span>
         </div>
       </div>
     </div>
 
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">PRJ_004</span>
-        <span class="project-status">OPEN SOURCE</span>
-      </div>
-      <div class="project-body">
-        <h3 class="project-title">ChurnShield</h3>
-        <p class="project-desc">Real-time churn prediction system for telecom companies using ensemble learning and explainable AI. Deployed as a SaaS product serving 3 enterprise clients with 99.2% uptime.</p>
-        <div class="project-stack">
-          <span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Streamlit</span><span class="tag">AWS</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-          <a href="#" class="project-link">Case Study ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">PRJ_005</span>
-        <span class="project-status">LIVE</span>
-      </div>
-      <div class="project-body">
-        <h3 class="project-title">AgroSense AI</h3>
-        <p class="project-desc">Computer vision system for crop disease detection in Sub-Saharan Africa using drone imagery. Trained on 50K+ annotated images, deployable on low-bandwidth mobile devices.</p>
-        <div class="project-stack">
-          <span class="tag">YOLOv8</span><span class="tag">TFLite</span><span class="tag">OpenCV</span><span class="tag">Flutter</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-          <a href="#" class="project-link">Demo ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-header">
-        <span class="project-num">PRJ_006</span>
-        <span class="project-status">PROTOTYPE</span>
-      </div>
-      <div class="project-body">
-        <h3 class="project-title">SynthFin</h3>
-        <p class="project-desc">Synthetic financial data generator using GANs and diffusion models, enabling ML teams to train fraud detection models without exposing real customer data. GDPR-compliant.</p>
-        <div class="project-stack">
-          <span class="tag">CTGAN</span><span class="tag">Diffusion</span><span class="tag">Python</span><span class="tag">PostgreSQL</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- RESUME -->
-<section id="resume">
-  <div class="section-header fade-in">
-    <span class="section-num">// 03</span>
-    <h2 class="section-title">Resume</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="resume-grid">
-    <div>
-      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem;">// Experience</p>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <p class="timeline-date">2023 — Present</p>
-          <p class="timeline-role">Senior ML Engineer</p>
-          <p class="timeline-company">Flutterwave — Lagos, Nigeria</p>
-          <p class="timeline-desc">Lead ML initiatives for fraud detection systems processing $26B+ in transactions annually. Reduced false positives by 38% through multi-modal ensemble approaches.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">2021 — 2023</p>
-          <p class="timeline-role">ML Engineer</p>
-          <p class="timeline-company">Andela — Remote</p>
-          <p class="timeline-desc">Built NLP pipelines for talent matching and developer assessment, improving placement accuracy by 28%. Deployed scalable inference APIs serving 10K+ requests/day.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">2019 — 2021</p>
-          <p class="timeline-role">Data Scientist</p>
-          <p class="timeline-company">MTN Nigeria</p>
-          <p class="timeline-desc">Developed churn prediction and customer segmentation models for 76M subscribers. Drove $4.2M revenue recovery through targeted retention campaigns.</p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem;">// Education & Certs</p>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <p class="timeline-date">2015 — 2019</p>
-          <p class="timeline-role">B.Eng. Computer Engineering</p>
-          <p class="timeline-company">University of Port Harcourt</p>
-          <p class="timeline-desc">First Class Honours. Dissertation on neural network-based signal processing for telecommunication systems.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">2022</p>
-          <p class="timeline-role">Deep Learning Specialization</p>
-          <p class="timeline-company">DeepLearning.AI — Coursera</p>
-          <p class="timeline-desc">5-course series covering CNNs, RNNs, Transformers, and MLOps. Instructor: Andrew Ng.</p>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">2023</p>
-          <p class="timeline-role">AWS Machine Learning Specialty</p>
-          <p class="timeline-company">Amazon Web Services</p>
-          <p class="timeline-desc">Certified in designing, implementing, and maintaining ML solutions on AWS infrastructure.</p>
-        </div>
-      </div>
-      <div class="resume-dl fade-in">
-        <div class="resume-dl-text">
-          <strong>Full Resume</strong>
-          Download PDF version with all details
-        </div>
-        <a href="#" class="btn-primary">Download CV →</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1048,9 +957,6 @@
         </a>
         <a href="#" class="contact-link">
           <span class="contact-link-icon">⌥</span> github.com/ziteonwuekweikpe
-        </a>
-        <a href="#" class="contact-link">
-          <span class="contact-link-icon">✕</span> @zite_ml
         </a>
       </div>
     </div>
