@@ -1006,6 +1006,12 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Open external links in a new tab
+  document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(link => {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
 </script>
 </body>
 </html>
