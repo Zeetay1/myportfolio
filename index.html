@@ -525,8 +525,6 @@
     justify-content: center;
     margin-top: 2rem;
     padding: 3rem 2rem;
-    width: 100%;
-    min-height: 4rem;
     border: 1px solid var(--border);
     background: var(--green-ghost);
     color: var(--green);
@@ -539,83 +537,6 @@
   }
 
   .resume-box:hover { border-color: var(--green); background: rgba(0,255,136,0.12); transform: translateY(-2px); }
-  button.resume-box {
-    cursor: pointer;
-    font-family: inherit;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  /* Resume PDF modal */
-  .resume-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: rgba(3,10,7,0.92);
-    backdrop-filter: blur(8px);
-  }
-  .resume-modal.is-open { display: flex; }
-  .resume-modal__inner {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    height: 85vh;
-    max-height: 900px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
-  }
-  .resume-modal__close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text);
-    font-size: 1.25rem;
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: all 0.2s;
-  }
-  .resume-modal__close:hover {
-    border-color: var(--green);
-    color: var(--green);
-    background: var(--green-ghost);
-  }
-  .resume-modal__iframe-wrap {
-    width: 100%;
-    height: 100%;
-    padding-top: 3rem;
-    box-sizing: border-box;
-  }
-  .resume-modal__iframe-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 0 0 var(--radius) var(--radius);
-  }
-  .resume-modal__fallback {
-    display: block;
-    margin-top: 0.75rem;
-    font-size: 11px;
-    color: var(--muted);
-    text-align: center;
-    letter-spacing: 0.08em;
-  }
-  .resume-modal__fallback a { color: var(--green); text-decoration: none; }
-  .resume-modal__fallback a:hover { text-decoration: underline; }
 
   /* ===== CONTACT ===== */
   #contact {
@@ -946,19 +867,8 @@
     <h2 class="section-title">Resume</h2>
     <div class="section-line"></div>
   </div>
-  <button type="button" class="resume-box fade-in" id="open-resume-btn" aria-label="View my resume">View my resume</button>
+  <a href="https://drive.google.com/drive/folders/1rsu9eZltEP-491p6ra28JbJTV5c8e-Rl?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-box fade-in">View my resume</a>
 </section>
-
-<!-- Resume PDF modal -->
-<div class="resume-modal" id="resume-modal" aria-hidden="true">
-  <div class="resume-modal__inner">
-    <button type="button" class="resume-modal__close" id="close-resume-btn" aria-label="Close">×</button>
-    <div class="resume-modal__iframe-wrap">
-      <iframe id="resume-iframe" src="" title="Zite Onwuekweikpe — Resume"></iframe>
-      <p class="resume-modal__fallback">If the PDF doesn’t display above, <a href="Zite_Onwuekweikpe_Resume.pdf" target="_blank" rel="noopener noreferrer">open in new tab</a> or download.</p>
-    </div>
-  </div>
-</div>
 
 <!-- PROJECTS (Section 03) -->
 <section id="projects">
@@ -1085,34 +995,6 @@
   document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(link => {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
-  });
-
-  // Resume modal: open in-page PDF viewer
-  const resumeModal = document.getElementById('resume-modal');
-  const resumeIframe = document.getElementById('resume-iframe');
-  const openResumeBtn = document.getElementById('open-resume-btn');
-  const closeResumeBtn = document.getElementById('close-resume-btn');
-
-  openResumeBtn.addEventListener('click', function() {
-    resumeIframe.src = 'Zite_Onwuekweikpe_Resume.pdf';
-    resumeModal.classList.add('is-open');
-    resumeModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  });
-
-  function closeResumeModal() {
-    resumeModal.classList.remove('is-open');
-    resumeModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    resumeIframe.src = '';
-  }
-
-  closeResumeBtn.addEventListener('click', closeResumeModal);
-  resumeModal.addEventListener('click', function(e) {
-    if (e.target === resumeModal) closeResumeModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && resumeModal.classList.contains('is-open')) closeResumeModal();
   });
 </script>
 </body>
