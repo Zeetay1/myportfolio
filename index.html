@@ -160,27 +160,13 @@ section[id] { scroll-margin-top:80px; }
       </div>
 
       <!-- Right controls -->
-      <div class="ml-auto sm:ml-0 flex items-center gap-1 sm:border-l sm:border-black/5 sm:dark:border-white/10 sm:ml-1 sm:pl-1">
+      <div class="ml-auto flex items-center gap-1 border-l border-black/5 dark:border-white/10 ml-1 pl-1">
         <button id="theme-btn" onclick="toggleTheme()" aria-label="Toggle colour scheme"
           class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-neutral-500 dark:text-neutral-400">
           <!-- dark mode on load → show sun so user can click to go light -->
           <iconify-icon id="theme-icon" icon="lucide:sun" width="14"></iconify-icon>
         </button>
-        <!-- Hamburger (mobile only) -->
-        <button id="ham-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"
-          class="hidden xs:flex w-8 h-8 rounded-full items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-neutral-500 dark:text-neutral-400">
-          <iconify-icon id="ham-icon" icon="lucide:menu" width="14"></iconify-icon>
-        </button>
       </div>
-    </div>
-
-    <!-- Mobile dropdown -->
-    <div id="mobile-menu" class="sm:hidden hidden glass-panel rounded-2xl mt-2 p-2 flex-col gap-1 shadow-lg shadow-black/10" role="menu">
-      <a href="#hero"     role="menuitem" class="block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors">Index</a>
-      <a href="#projects" role="menuitem" class="block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors">Work</a>
-      <a href="#skills"   role="menuitem" class="block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors">Stack</a>
-      <a href="#resume"   role="menuitem" class="block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors">Resume</a>
-      <a href="#contact"  role="menuitem" class="block px-4 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl transition-colors">Contact</a>
     </div>
   </nav>
 
@@ -659,36 +645,6 @@ section[id] { scroll-margin-top:80px; }
       html.classList.add('dark');
       icon.setAttribute('icon', 'lucide:sun');  // now dark mode, show sun to go light
     }
-  }
-
-  // ── Mobile hamburger ──────────────────────────────────────
-  const hamBtn  = document.getElementById('ham-btn');
-  const hamIcon = document.getElementById('ham-icon');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamBtn.addEventListener('click', () => {
-    const open = hamBtn.getAttribute('aria-expanded') === 'true';
-    hamBtn.setAttribute('aria-expanded', String(!open));
-    hamIcon.setAttribute('icon', open ? 'lucide:menu' : 'lucide:x');
-    if (open) {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-    } else {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-    }
-  });
-
-  // Close mobile menu on any anchor click, or outside tap
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
-  document.addEventListener('click', e => {
-    if (!document.querySelector('nav').contains(e.target)) closeMobileMenu();
-  });
-  function closeMobileMenu() {
-    hamBtn.setAttribute('aria-expanded', 'false');
-    hamIcon.setAttribute('icon', 'lucide:menu');
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('flex');
   }
 
   // ── Scroll-spy (highlight active nav link) ────────────────
