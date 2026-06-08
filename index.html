@@ -627,7 +627,7 @@ section[id] { scroll-margin-top:80px; }
        ══════════════════════════════════════ -->
   <footer class="relative z-10 border-t border-black/5 dark:border-white/5">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-neutral-400 font-mono">&copy; 2026 Zite Onwuekweikpe</p>
+      <p class="text-xs text-neutral-400 font-mono">&copy; <span id="copyright-year"></span> Zite Onwuekweikpe</p>
       <div class="flex items-center gap-5">
         <a href="https://www.linkedin.com/in/zite-onwuekweikpe/" target="_blank" rel="noopener noreferrer"
           aria-label="LinkedIn" class="text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
@@ -803,6 +803,8 @@ section[id] { scroll-margin-top:80px; }
   window.addEventListener('resize', resize);
   resize();
   tick();
+
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
   </script>
 
 </body>
