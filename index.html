@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zite Onwuekweikpe — AI/ML Engineer</title>
+<title>Zite Onwuekweikpe, AI/ML Engineer</title>
 <meta name="description" content="AI/ML Engineer specialising in deep learning, MLOps, and production-grade AI deployment. Building intelligent systems that learn, reason, and scale.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Zite Onwuekweikpe — AI/ML Engineer">
+<meta property="og:title" content="Zite Onwuekweikpe, AI/ML Engineer">
 <meta property="og:description" content="AI/ML Engineer specialising in deep learning, MLOps, and production-grade AI deployment.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zite Onwuekweikpe — AI/ML Engineer">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2308090A'/><text x='50' y='70' font-family='Inter,sans-serif' font-size='40' font-weight='600' fill='%23818cf8' text-anchor='middle'>ZO</text></svg>">
+<meta name="twitter:title" content="Zite Onwuekweikpe, AI/ML Engineer">
+<link rel="icon" href="./avatar.png">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -132,7 +132,7 @@ section[id] { scroll-margin-top:80px; }
   <canvas id="network-canvas" class="fixed top-0 left-0 w-full h-full z-0 opacity-20 dark:opacity-30 pointer-events-none" aria-hidden="true"></canvas>
 
   <!-- ══════════════════════════════════════
-       NAVIGATION — centered glass pill
+       NAVIGATION: centered glass pill
        ══════════════════════════════════════ -->
   <nav aria-label="Main navigation"
     class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] sm:w-auto">
@@ -160,6 +160,7 @@ section[id] { scroll-margin-top:80px; }
       <div class="ml-auto sm:ml-0 flex items-center gap-1 sm:border-l sm:border-black/5 sm:dark:border-white/10 sm:ml-1 sm:pl-1">
         <button id="theme-btn" onclick="toggleTheme()" aria-label="Toggle colour scheme"
           class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-neutral-500 dark:text-neutral-400">
+          <!-- dark mode on load → show sun so user can click to go light -->
           <iconify-icon id="theme-icon" icon="lucide:sun" width="14"></iconify-icon>
         </button>
         <!-- Hamburger (mobile only) -->
@@ -207,8 +208,8 @@ section[id] { scroll-margin-top:80px; }
 
           <!-- Name headline -->
           <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-[-0.03em] leading-[0.95] text-neutral-900 dark:text-white mb-6 opacity-0 animate-slide-up delay-100">
-            Building<br>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-500 to-neutral-900 dark:from-white dark:via-neutral-400 dark:to-white bg-[size:300%] animate-shimmer">Intelligence.</span>
+            Hi,<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-500 to-neutral-900 dark:from-white dark:via-neutral-400 dark:to-white bg-[size:300%] animate-shimmer">I'm Zite</span>
           </h1>
 
           <!-- Name + typing title -->
@@ -224,7 +225,7 @@ section[id] { scroll-margin-top:80px; }
             I build intelligent systems that learn, reason, and scale. Specialising in
             <span class="text-neutral-900 dark:text-white font-medium">deep learning architectures</span>,
             <span class="text-neutral-900 dark:text-white font-medium">MLOps infrastructure</span>, and
-            production-grade AI deployment — turning research into real-world impact.
+            production-grade AI deployment, turning research into real-world impact.
           </p>
 
           <!-- CTAs -->
@@ -274,7 +275,7 @@ section[id] { scroll-margin-top:80px; }
   </section>
 
   <!-- ══════════════════════════════════════
-       PROJECTS — Bento grid, direct links
+       PROJECTS: Bento grid, direct links
        ══════════════════════════════════════ -->
   <section id="projects" class="relative z-10 border-t border-black/5 dark:border-white/5">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-28">
@@ -284,43 +285,63 @@ section[id] { scroll-margin-top:80px; }
           <span class="text-[10px] font-mono text-indigo-500 uppercase tracking-widest">// 01</span>
         </div>
         <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">Selected Work</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Publicly deployed systems across ML, NLP, and agentic AI.</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Publicly deployed demos across ML, NLP, and agentic AI.</p>
       </div>
 
       <!-- Bento grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
 
-        <!-- PRJ 1: Pseudogen — large feature card, 2×2 -->
-        <a href="https://pseudogen-frontend.fly.dev/" target="_blank" rel="noopener noreferrer"
+        <!-- PRJ 1: Ad Copy Agent, large feature card (2x2) -->
+        <a href="https://self-improving-agent-delta.vercel.app/" target="_blank" rel="noopener noreferrer"
           class="group md:col-span-2 md:row-span-2 glass-card rounded-3xl p-1 relative overflow-hidden reveal d1 block">
-          <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
             <!-- Icon area -->
-            <div class="flex-1 relative flex items-center justify-center bg-indigo-500/5 overflow-hidden min-h-[200px]">
-              <div class="w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 transition-transform duration-700 ease-out"></div>
-              <iconify-icon icon="lucide:code-2" width="80" class="text-neutral-900 dark:text-white relative z-10 drop-shadow-2xl" stroke-width="1"></iconify-icon>
+            <div class="flex-1 relative flex items-center justify-center bg-violet-500/5 overflow-hidden min-h-[200px]">
+              <div class="w-64 h-64 bg-violet-500/20 rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+              <iconify-icon icon="lucide:sparkles" width="80" class="text-neutral-900 dark:text-white relative z-10 drop-shadow-2xl" stroke-width="1"></iconify-icon>
             </div>
             <!-- Content -->
             <div class="p-6 sm:p-8 border-t border-black/5 dark:border-white/5 relative z-10 bg-[#FAFAFA]/80 dark:bg-[#0A0A0A]/80 backdrop-blur-sm">
               <div class="flex justify-between items-start gap-4 mb-2">
                 <div class="min-w-0">
-                  <h3 class="text-xl font-medium text-neutral-900 dark:text-white">Pseudogen</h3>
-                  <p class="text-sm text-neutral-500 mt-1">Converts natural language problem statements into structured pseudocode across multiple output styles.</p>
+                  <h3 class="text-xl font-medium text-neutral-900 dark:text-white">Self-Improving Ad Copy Agent</h3>
+                  <p class="text-sm text-neutral-500 mt-1">Generates ad copy for DTC brands, evaluates its own output, promotes winning variants as few-shot examples, and improves over time without retraining.</p>
                 </div>
-                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-indigo-500 group-hover:border-indigo-500 group-hover:text-white transition-all shrink-0">
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-violet-500 group-hover:border-violet-500 group-hover:text-white transition-all shrink-0">
                   <iconify-icon icon="lucide:arrow-up-right" width="16"></iconify-icon>
                 </div>
               </div>
               <div class="flex flex-wrap gap-2 mt-4">
-                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">Python</span>
-                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">JavaScript</span>
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">FastAPI</span>
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">Agentic AI</span>
                 <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/5">Live</span>
               </div>
             </div>
           </div>
         </a>
 
-        <!-- PRJ 2: Anomaly Detector — small top-right -->
+        <!-- PRJ 2: Pseudogen, small top-right -->
+        <a href="https://pseudogen-frontend.fly.dev/" target="_blank" rel="noopener noreferrer"
+          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
+          <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
+            <div class="flex-1 relative flex items-center justify-center bg-indigo-500/5 min-h-[110px]">
+              <iconify-icon icon="lucide:code-2" width="48"
+                class="text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-500 transition-colors" stroke-width="1.5"></iconify-icon>
+            </div>
+            <div class="p-5 border-t border-black/5 dark:border-white/5 flex justify-between items-start gap-2">
+              <div class="min-w-0">
+                <h3 class="text-base font-medium text-neutral-900 dark:text-white">Pseudogen</h3>
+                <p class="text-xs text-neutral-500 mt-1">Natural language to structured pseudocode.</p>
+              </div>
+              <div class="w-7 h-7 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-indigo-500 group-hover:border-indigo-500 group-hover:text-white transition-all shrink-0">
+                <iconify-icon icon="lucide:arrow-up-right" width="13"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- PRJ 3: Anomaly Detector, small bottom-right -->
         <a href="https://real-time-anomaly.fly.dev/" target="_blank" rel="noopener noreferrer"
           class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
@@ -340,27 +361,7 @@ section[id] { scroll-margin-top:80px; }
           </div>
         </a>
 
-        <!-- PRJ 3: Ad Copy Agent — small bottom-right -->
-        <a href="https://self-improving-agent-delta.vercel.app/" target="_blank" rel="noopener noreferrer"
-          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
-          <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
-            <div class="flex-1 relative flex items-center justify-center bg-violet-500/5 min-h-[110px]">
-              <iconify-icon icon="lucide:sparkles" width="48"
-                class="text-neutral-700 dark:text-neutral-300 group-hover:text-violet-500 transition-colors" stroke-width="1.5"></iconify-icon>
-            </div>
-            <div class="p-5 border-t border-black/5 dark:border-white/5 flex justify-between items-start gap-2">
-              <div class="min-w-0">
-                <h3 class="text-base font-medium text-neutral-900 dark:text-white">Ad Copy Agent</h3>
-                <p class="text-xs text-neutral-500 mt-1">Self-improving agentic copy generation.</p>
-              </div>
-              <div class="w-7 h-7 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-violet-500 group-hover:border-violet-500 group-hover:text-white transition-all shrink-0">
-                <iconify-icon icon="lucide:arrow-up-right" width="13"></iconify-icon>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- PRJ 4: Counterfactual Engine — full-width, in development (no link) -->
+        <!-- PRJ 4: Counterfactual Engine, full-width, in development (no link) -->
         <div class="group md:col-span-3 glass-card rounded-3xl p-1 relative overflow-hidden reveal d3 cursor-default">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative">
             <div class="flex flex-col sm:flex-row items-center gap-5 p-6 sm:p-8">
@@ -394,7 +395,7 @@ section[id] { scroll-margin-top:80px; }
           <span class="text-[10px] font-mono text-indigo-500 uppercase tracking-widest">// 02</span>
         </div>
         <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">Tech Stack</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Tools of the trade.</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Core Technologies</p>
       </div>
 
       <!-- 6 skill cards in a 2-col (mobile) / 3-col (desktop) grid -->
@@ -417,7 +418,7 @@ section[id] { scroll-margin-top:80px; }
         <div class="glass-card rounded-2xl p-6 reveal d1">
           <p class="text-[10px] font-mono font-bold text-indigo-500 uppercase tracking-widest mb-3">Frontier</p>
           <h3 class="text-base font-semibold text-neutral-900 dark:text-white mb-2">Deep Learning</h3>
-          <p class="text-xs text-neutral-500 dark:text-neutral-400 mb-4 leading-relaxed">Transformers, CNNs, RNNs — from scratch and fine-tuned at scale on multi-GPU clusters.</p>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 mb-4 leading-relaxed">Transformers, CNNs, RNNs; from scratch and fine-tuned at scale on multi-GPU clusters.</p>
           <div class="flex flex-wrap gap-1.5">
             <span class="text-[10px] px-2 py-0.5 border border-black/8 dark:border-white/10 rounded text-neutral-500 dark:text-neutral-400">Transformers</span>
             <span class="text-[10px] px-2 py-0.5 border border-black/8 dark:border-white/10 rounded text-neutral-500 dark:text-neutral-400">PEFT</span>
@@ -492,7 +493,7 @@ section[id] { scroll-margin-top:80px; }
           <span class="text-[10px] font-mono text-indigo-500 uppercase tracking-widest">// 03</span>
         </div>
         <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">Resume</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Full work history, roles, and measurable outcomes.</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Work history, roles, and measurable outcomes.</p>
       </div>
 
       <a href="https://drive.google.com/file/d/1YuDqq93aPoPaOcLxEIDC2R5vh024HSDT/view?usp=sharing"
@@ -506,7 +507,7 @@ section[id] { scroll-margin-top:80px; }
           <!-- Text -->
           <div class="flex-1 min-w-0">
             <h3 class="text-xl font-semibold text-neutral-900 dark:text-white mb-2">Curriculum Vitae</h3>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">Zite Onwuekweikpe — AI/ML Engineer, MLOps Architect. 5+ years of experience building production-grade intelligent systems.</p>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">Zite Onwuekweikpe, AI/ML Engineer, MLOps Architect. 5+ years of experience building production-grade intelligent systems.</p>
           </div>
           <!-- Arrow -->
           <div class="shrink-0 flex items-center gap-2 text-indigo-500 font-semibold text-sm group-hover:gap-4 transition-all">
@@ -543,7 +544,7 @@ section[id] { scroll-margin-top:80px; }
             Let's build something<br><span class="text-indigo-500">intelligent.</span>
           </h3>
           <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-8 leading-relaxed">
-            Whether you're working on a research problem, scaling an ML system, or building a new product — I'd like to hear about it.
+            Whether you're working on a research problem, scaling an ML system, or building a new product, I'd like to hear about it.
           </p>
 
           <div class="space-y-3">
@@ -586,7 +587,7 @@ section[id] { scroll-margin-top:80px; }
         </div>
 
         <!-- Right: avatar reprise + availability note -->
-        <div class="reveal d2 flex flex-col justify-center items-center">
+        <div class="reveal d2 flex flex-col justify-end items-center">
           <div class="glass-card rounded-3xl p-1 w-full">
             <div class="bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] p-8 flex flex-col items-center text-center gap-5">
               <div class="relative">
@@ -649,10 +650,10 @@ section[id] { scroll-margin-top:80px; }
     const icon = document.getElementById('theme-icon');
     if (html.classList.contains('dark')) {
       html.classList.remove('dark');
-      icon.setAttribute('icon', 'lucide:sun');
+      icon.setAttribute('icon', 'lucide:moon'); // now light mode, show moon to go dark
     } else {
       html.classList.add('dark');
-      icon.setAttribute('icon', 'lucide:moon');
+      icon.setAttribute('icon', 'lucide:sun');  // now dark mode, show sun to go light
     }
   }
 
