@@ -111,6 +111,10 @@ section[id] { scroll-margin-top:80px; }
   animation:blink 1s step-end infinite;
 }
 @keyframes blink { 50% { opacity:0; } }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
 
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after {
@@ -266,6 +270,7 @@ section[id] { scroll-margin-top:80px; }
             <div class="absolute inset-0 scale-125 bg-indigo-500/10 dark:bg-indigo-500/15 blur-3xl rounded-full pointer-events-none"></div>
             <img src="./avatar.png" alt="Zite Onwuekweikpe"
               class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-64 lg:h-64 object-contain drop-shadow-2xl select-none"
+              style="animation: float 5s ease-in-out infinite;"
               draggable="false" />
           </div>
         </div>
