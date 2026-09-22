@@ -275,31 +275,26 @@ section[id] { scroll-margin-top:80px; }
         <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Publicly deployed demos across ML, NLP, and agentic AI.</p>
       </div>
 
-      <!-- Bento grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
+      <!-- Bento grid: uniform 2-col cards, odd one out goes full-width -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        <!-- PRJ 1: Ad Copy Agent, large feature card (2x2) -->
+        <!-- PRJ 1: Ad Copy Agent -->
         <a href="https://adcopy.zeetay.dev/" target="_blank" rel="noopener noreferrer"
-          class="group md:col-span-2 md:row-span-2 glass-card rounded-3xl p-1 relative overflow-hidden reveal d1 block">
-          <div class="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d1 block">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
-            <!-- Icon area -->
-            <div class="flex-1 relative flex items-center justify-center bg-violet-500/5 overflow-hidden min-h-[200px]">
+            <div class="relative flex items-center justify-center bg-violet-500/5 overflow-hidden min-h-[160px]">
               <div class="w-64 h-64 bg-violet-500/20 rounded-full blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 transition-transform duration-700 ease-out"></div>
-              <iconify-icon icon="lucide:sparkles" width="80" class="text-neutral-900 dark:text-white relative z-10 drop-shadow-2xl" stroke-width="1"></iconify-icon>
+              <iconify-icon icon="lucide:sparkles" width="64" class="text-neutral-900 dark:text-white relative z-10 drop-shadow-2xl" stroke-width="1"></iconify-icon>
             </div>
-            <!-- Content -->
-            <div class="p-6 sm:p-8 border-t border-black/5 dark:border-white/5 relative z-10 bg-[#FAFAFA]/80 dark:bg-[#0A0A0A]/80 backdrop-blur-sm">
-              <div class="flex justify-between items-start gap-4 mb-2">
-                <div class="min-w-0">
-                  <h3 class="text-xl font-medium text-neutral-900 dark:text-white">Self-Improving Ad Copy Agent</h3>
-                  <p class="text-sm text-neutral-500 mt-1">Generates ad copy for DTC brands, evaluates its own output, promotes winning variants as few-shot examples, and improves over time without retraining.</p>
-                </div>
+            <div class="p-6 sm:p-7 border-t border-black/5 dark:border-white/5 flex-1 flex flex-col">
+              <div class="flex justify-between items-start gap-3 mb-2">
+                <h3 class="text-base font-medium text-neutral-900 dark:text-white">Self-Improving Ad Copy Agent</h3>
                 <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-violet-500 group-hover:border-violet-500 group-hover:text-white transition-all shrink-0">
-                  <iconify-icon icon="lucide:arrow-up-right" width="16"></iconify-icon>
+                  <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-2 mt-4">
+              <p class="text-xs text-neutral-500 leading-relaxed">Generates ad copy for DTC brands, evaluates its own output, promotes winning variants as few-shot examples, and improves over time without retraining.</p>
+              <div class="flex flex-wrap gap-1.5 mt-auto pt-4">
                 <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">FastAPI</span>
                 <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">Agentic AI</span>
                 <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/5">Live</span>
@@ -308,48 +303,83 @@ section[id] { scroll-margin-top:80px; }
           </div>
         </a>
 
-        <!-- PRJ 2: Pseudogen, small top-right -->
+        <!-- PRJ 2: Pseudogen -->
         <a href="https://pseudogen.zeetay.dev/" target="_blank" rel="noopener noreferrer"
-          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
+          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d1 block">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
-            <div class="flex-1 relative flex items-center justify-center bg-indigo-500/5 min-h-[110px]">
-              <iconify-icon icon="lucide:code-2" width="48"
+            <div class="relative flex items-center justify-center bg-indigo-500/5 min-h-[160px]">
+              <iconify-icon icon="lucide:code-2" width="64"
                 class="text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-500 transition-colors" stroke-width="1.5"></iconify-icon>
             </div>
-            <div class="p-5 border-t border-black/5 dark:border-white/5 flex justify-between items-start gap-2">
-              <div class="min-w-0">
+            <div class="p-6 sm:p-7 border-t border-black/5 dark:border-white/5 flex-1 flex flex-col">
+              <div class="flex justify-between items-start gap-3 mb-2">
                 <h3 class="text-base font-medium text-neutral-900 dark:text-white">Pseudogen</h3>
-                <p class="text-xs text-neutral-500 mt-1">Natural language to structured pseudocode.</p>
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-indigo-500 group-hover:border-indigo-500 group-hover:text-white transition-all shrink-0">
+                  <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+                </div>
               </div>
-              <div class="w-7 h-7 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-indigo-500 group-hover:border-indigo-500 group-hover:text-white transition-all shrink-0">
-                <iconify-icon icon="lucide:arrow-up-right" width="13"></iconify-icon>
+              <p class="text-xs text-neutral-500 leading-relaxed">Natural language to structured pseudocode.</p>
+              <div class="flex flex-wrap gap-1.5 mt-auto pt-4">
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">NLP</span>
+                <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/5">Live</span>
               </div>
             </div>
           </div>
         </a>
 
-        <!-- PRJ 3: Anomaly Detector, small bottom-right -->
+        <!-- PRJ 3: Anomaly Detector -->
         <a href="https://anomaly.zeetay.dev/" target="_blank" rel="noopener noreferrer"
           class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
-            <div class="flex-1 relative flex items-center justify-center bg-emerald-500/5 min-h-[110px]">
-              <iconify-icon icon="lucide:activity" width="48"
+            <div class="relative flex items-center justify-center bg-emerald-500/5 min-h-[160px]">
+              <iconify-icon icon="lucide:activity" width="64"
                 class="text-neutral-700 dark:text-neutral-300 group-hover:text-emerald-500 transition-colors" stroke-width="1.5"></iconify-icon>
             </div>
-            <div class="p-5 border-t border-black/5 dark:border-white/5 flex justify-between items-start gap-2">
-              <div class="min-w-0">
+            <div class="p-6 sm:p-7 border-t border-black/5 dark:border-white/5 flex-1 flex flex-col">
+              <div class="flex justify-between items-start gap-3 mb-2">
                 <h3 class="text-base font-medium text-neutral-900 dark:text-white">Anomaly Detector</h3>
-                <p class="text-xs text-neutral-500 mt-1">Real-time adaptive time-series detection.</p>
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-emerald-500 group-hover:border-emerald-500 group-hover:text-white transition-all shrink-0">
+                  <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+                </div>
               </div>
-              <div class="w-7 h-7 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-emerald-500 group-hover:border-emerald-500 group-hover:text-white transition-all shrink-0">
-                <iconify-icon icon="lucide:arrow-up-right" width="13"></iconify-icon>
+              <p class="text-xs text-neutral-500 leading-relaxed">Real-time adaptive time-series detection.</p>
+              <div class="flex flex-wrap gap-1.5 mt-auto pt-4">
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">Time-Series</span>
+                <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/5">Live</span>
               </div>
             </div>
           </div>
         </a>
 
-        <!-- PRJ 4: Counterfactual Engine, full-width, in development (no link) -->
-        <div class="group md:col-span-3 glass-card rounded-3xl p-1 relative overflow-hidden reveal d3 cursor-default">
+        <!-- PRJ 4: Autonomous Code Review Agent, GitHub link -->
+        <a href="https://github.com/Zeetay1/Autonomous-Code-Review-Agent-with-Memory" target="_blank" rel="noopener noreferrer"
+          class="group glass-card rounded-3xl p-1 relative overflow-hidden reveal d2 block">
+          <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative flex flex-col">
+            <div class="relative flex items-center justify-center bg-sky-500/5 min-h-[160px]">
+              <iconify-icon icon="lucide:git-pull-request-arrow" width="64"
+                class="text-neutral-700 dark:text-neutral-300 group-hover:text-sky-500 transition-colors" stroke-width="1.5"></iconify-icon>
+            </div>
+            <div class="p-6 sm:p-7 border-t border-black/5 dark:border-white/5 flex-1 flex flex-col">
+              <div class="flex justify-between items-start gap-3 mb-2">
+                <h3 class="text-base font-medium text-neutral-900 dark:text-white">Autonomous Code Review Agent with Memory</h3>
+                <div class="w-8 h-8 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:text-white transition-all shrink-0">
+                  <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-500 leading-relaxed">An LLM code-review agent that remembers what developers actually accept or reject, so it stops repeating feedback nobody wants. Reviews GitHub PRs via webhook, writes accept/reject outcomes into a vector store, and stops raising a suggestion once it's been rejected enough times.</p>
+              <div class="flex flex-wrap gap-1.5 mt-auto pt-4">
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">LangGraph</span>
+                <span class="text-[10px] uppercase tracking-wider border border-black/5 dark:border-white/10 px-2 py-1 rounded text-neutral-500">ChromaDB</span>
+                <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded text-neutral-500 border border-black/10 dark:border-white/10 inline-flex items-center gap-1">
+                  <iconify-icon icon="lucide:github" width="10"></iconify-icon> Code
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- PRJ 5: Counterfactual Engine, in development (no link) — odd one out, full width -->
+        <div class="group md:col-span-2 glass-card rounded-3xl p-1 relative overflow-hidden reveal d3 cursor-default">
           <div class="h-full w-full bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] overflow-hidden relative">
             <div class="flex flex-col sm:flex-row items-center gap-5 p-6 sm:p-8">
               <div class="shrink-0 w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center">
