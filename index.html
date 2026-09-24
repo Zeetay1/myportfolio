@@ -220,7 +220,7 @@ section[id] { scroll-margin-top:80px; }
               class="group relative px-6 py-3 bg-neutral-900 dark:bg-[#EDEDED] text-white dark:text-black text-xs font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <span class="relative z-10 flex items-center gap-2">View Work <iconify-icon icon="lucide:arrow-right" width="14"></iconify-icon></span>
             </a>
-            <a href="resume.pdf"
+            <a href="resume.pdf" data-resume-open
               target="_blank" rel="noopener noreferrer"
               class="px-6 py-3 text-neutral-600 dark:text-neutral-400 text-xs font-medium hover:text-black dark:hover:text-white transition-colors flex items-center gap-2 border border-neutral-200 dark:border-white/10 rounded-full hover:border-neutral-400 dark:hover:border-white/30">
               <iconify-icon icon="lucide:file-text" width="14"></iconify-icon> Resume
@@ -513,7 +513,7 @@ section[id] { scroll-margin-top:80px; }
         <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Work history, roles, and measurable outcomes.</p>
       </div>
 
-      <a href="resume.pdf"
+      <a href="resume.pdf" data-resume-open
         target="_blank" rel="noopener noreferrer"
         class="group glass-card rounded-3xl p-1 block reveal">
         <div class="bg-[#FAFAFA] dark:bg-[#0A0A0A] rounded-[20px] p-10 sm:p-14 flex flex-col sm:flex-row items-center gap-8 sm:gap-12 text-center sm:text-left">
@@ -653,6 +653,34 @@ section[id] { scroll-margin-top:80px; }
     </div>
   </footer>
 
+  <!-- Resume modal (pages rendered with pdf.js, loaded on first open) -->
+  <div id="resume-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm"
+    role="dialog" aria-modal="true" aria-label="Resume">
+    <div class="w-full max-w-4xl h-full max-h-[92vh] flex flex-col rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#FAFAFA] dark:bg-[#0A0A0A] shadow-2xl">
+      <div class="flex items-center justify-between gap-3 px-4 py-3 border-b border-black/5 dark:border-white/10">
+        <span class="text-xs font-semibold tracking-tight text-neutral-900 dark:text-white">Resume</span>
+        <div class="flex items-center gap-1">
+          <a href="resume.pdf" download
+            class="px-3 py-1.5 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center gap-1.5">
+            <iconify-icon icon="lucide:download" width="13"></iconify-icon> <span class="hidden xs:inline">Download</span>
+          </a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+            class="px-3 py-1.5 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center gap-1.5">
+            <iconify-icon icon="lucide:external-link" width="13"></iconify-icon> <span class="hidden xs:inline">New tab</span>
+          </a>
+          <button id="resume-close" type="button" aria-label="Close resume"
+            class="w-8 h-8 rounded-full flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+            <iconify-icon icon="lucide:x" width="16"></iconify-icon>
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-y-auto overscroll-contain bg-neutral-200 dark:bg-neutral-900 p-2 sm:p-4">
+        <p id="resume-status" class="text-xs text-neutral-500 text-center py-10">Loading resume...</p>
+        <div id="resume-pages" class="w-full flex flex-col gap-3"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════════════
        SCRIPTS
        ══════════════════════════════════════ -->
@@ -783,6 +811,83 @@ section[id] { scroll-margin-top:80px; }
   tick();
 
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+  // ── Resume modal ──────────────────────────────────────────
+  const resumeModal  = document.getElementById('resume-modal');
+  const resumePages  = document.getElementById('resume-pages');
+  const resumeStatus = document.getElementById('resume-status');
+  const resumeClose  = document.getElementById('resume-close');
+  const PDFJS_BASE   = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+  let resumeDone = false, resumeBusy = false, resumeOpener = null;
+
+  function loadPdfJs() {
+    if (window.pdfjsLib) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = PDFJS_BASE + 'pdf.min.js';
+      s.onload = () => {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_BASE + 'pdf.worker.min.js';
+        resolve();
+      };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  async function renderResume() {
+    if (resumeDone || resumeBusy) return;
+    resumeBusy = true;
+    resumePages.textContent = '';
+    resumeStatus.textContent = 'Loading resume...';
+    resumeStatus.classList.remove('hidden');
+    try {
+      await loadPdfJs();
+      const pdf = await pdfjsLib.getDocument('resume.pdf').promise;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= pdf.numPages; n++) {
+        const page = await pdf.getPage(n);
+        const base = page.getViewport({ scale: 1 });
+        const viewport = page.getViewport({ scale: (resumePages.clientWidth / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = viewport.width;
+        c.height = viewport.height;
+        c.className = 'w-full h-auto bg-white shadow-md';
+        resumePages.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport }).promise;
+        resumeStatus.classList.add('hidden');
+      }
+      resumeDone = true;
+    } catch (err) {
+      resumePages.textContent = '';
+      resumeStatus.textContent = 'Could not load the preview. Use Download or New tab above.';
+      resumeStatus.classList.remove('hidden');
+    } finally {
+      resumeBusy = false;
+    }
+  }
+
+  function openResume(e) {
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    e.preventDefault();
+    resumeOpener = document.activeElement;
+    resumeModal.classList.replace('hidden', 'flex');
+    document.body.style.overflow = 'hidden';
+    resumeClose.focus();
+    renderResume();
+  }
+
+  function closeResume() {
+    resumeModal.classList.replace('flex', 'hidden');
+    document.body.style.overflow = '';
+    if (resumeOpener) resumeOpener.focus();
+  }
+
+  document.querySelectorAll('[data-resume-open]').forEach(a => a.addEventListener('click', openResume));
+  resumeClose.addEventListener('click', closeResume);
+  resumeModal.addEventListener('click', e => { if (e.target === resumeModal) closeResume(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) closeResume();
+  });
   </script>
 
 </body>
